@@ -3,6 +3,8 @@ package cafe.service;
 import java.util.List;
 
 import cafe.dto.CoffeeDto;
+import cafe.dto.OrderDto;
+import cafe.exception.DMLException;
 import cafe.exception.SearchWrongException;
 
 public interface CafeService {
@@ -16,4 +18,9 @@ public interface CafeService {
 	 * 커피메뉴에 키워드 입력해서 상세정보 보기
 	 * */
 	List<CoffeeDto> coffeeSelectByName(String keyWord) throws SearchWrongException;
+	
+	/**
+	 * 주문한 메뉴들 insert하기
+	 * */
+	void coffeeOrder(OrderDto dto) throws DMLException; 
 }
