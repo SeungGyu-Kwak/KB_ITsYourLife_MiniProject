@@ -3,6 +3,7 @@ package cafe.view;
 import java.util.List;
 
 public class SuccessView {
+	
 //	public static void selectPrint(List<> list) {
 //		System.out.println("----Board LIST ("+list.size()+") 개 ------------------");
 //		for( : list) {
