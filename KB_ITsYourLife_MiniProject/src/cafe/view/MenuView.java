@@ -2,11 +2,14 @@ package cafe.view;
 
 import java.util.Scanner;
 
+import cafe.controller.CafeController;
+
 public class MenuView {
 	static Scanner sc =new Scanner(System.in);
 
 	/**
 	 * 메뉴
+	 * @작성자 : 곽승규, 윤소민
 	 * */
 	public static void menuChoice() {
 		while(true) {
@@ -22,10 +25,10 @@ public class MenuView {
 				int menu = Integer.parseInt(sc.nextLine());//
 				switch (menu) {
 				case 1:
-					//BoardController.boardSelectByAll();	
+					CafeController.coffeeSelectByAll();
 					break;
 				case 2:
-					//inputBoardByno(); //존재하는 게시물
+					inputCoffeeByName();
 					break;
 				case 3:
 					//inputBoardBySubject();
@@ -44,4 +47,15 @@ public class MenuView {
 			}
 		}//while문
 	}
-}
+	
+	
+	/**
+	 * 메뉴검색 
+	 * @작성자 : 곽승규
+	 * */
+	public static void inputCoffeeByName() {
+		System.out.println("어떤 커피 정보를 보시겠습니까 ? > ");
+		String keyWord = sc.nextLine();
+		CafeController.coffeeSelectByName(keyWord);
+	}
+}//클래스 끝
