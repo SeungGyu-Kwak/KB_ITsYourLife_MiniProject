@@ -9,6 +9,15 @@ public class OrderDto {
 	private int totalPrice;// 총결제금액
 	
 	private List <OrderDetailDto> orderDetailList; // 주문 상세정보 저장
+	
+	public OrderDto(int orderNumSeq, int G_H, String orderDate, int totalPrice) {
+		super();
+		this.orderNumSeq = orderNumSeq;
+		this.G_H = G_H;
+		this.orderDate = orderDate;
+		this.totalPrice = totalPrice;
+
+	}
 
 	public int getOrderNumSeq() {
 		return orderNumSeq;

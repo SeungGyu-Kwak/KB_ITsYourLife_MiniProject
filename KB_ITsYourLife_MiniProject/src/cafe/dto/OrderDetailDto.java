@@ -8,7 +8,14 @@ public class OrderDetailDto {
 	private int menuEA; // 몇잔
 	private int kind; // kind(hot, ice) 1이면 hot, 2면 ice
 	
-	
+	public OrderDetailDto(int orderCode, int orderNum, String menuName, int menuEA, int kind) {
+		super();
+		this.orderCode = orderCode;
+		this.orderNum = orderNum;
+		this.menuName = menuName;
+		this.menuEA = menuEA;
+		this.kind = kind;
+	}
 	public int getOrderDetailCode() {
 		return orderCode;
 	}

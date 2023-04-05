@@ -3,6 +3,8 @@ package cafe.controller;
 import java.util.List;
 
 import cafe.dto.CoffeeDto;
+import cafe.dto.OrderDto;
+import cafe.exception.DMLException;
 import cafe.exception.SearchWrongException;
 import cafe.service.CafeService;
 import cafe.service.CafeServiceImpl;
@@ -35,6 +37,18 @@ public class CafeController {
 			List<CoffeeDto>coffeeList = cafeService.coffeeSelectByName(keyWord);
 			SuccessView.selectByNamePrint(coffeeList, keyWord);
 		} catch (SearchWrongException e) {
+			FailView.errorMessage(e.getMessage());
+		}
+	}
+	
+	/** CafeControllerImpl 
+	 * 주문하기
+	 */
+	public static void insertOrders(OrderDto order) {
+		try {
+			cafeService.coffeeOrder(order);
+			SuccessView.messagePrint("주문되었습니다.");
+		}catch(DMLException e) {
 			FailView.errorMessage(e.getMessage());
 		}
 	}

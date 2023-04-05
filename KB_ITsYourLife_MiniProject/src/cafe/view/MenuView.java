@@ -47,8 +47,8 @@ public class MenuView {
 			}
 		}//while문
 	}
-	
-	
+
+
 	/**
 	 * 메뉴검색 
 	 * @작성자 : 곽승규
@@ -57,5 +57,31 @@ public class MenuView {
 		System.out.println("어떤 커피 정보를 보시겠습니까 ? > ");
 		String keyWord = sc.nextLine();
 		CafeController.coffeeSelectByName(keyWord);
+	}
+
+	/**
+	 * 주문하기
+	 * @작성자 : 윤소민
+	 */
+	public static void inputOrder(String userID) {
+		System.out.println("메뉴 이름을 입력해주세요 >");
+		String menuName = sc.nextLine();
+
+		System.out.println("HOT / ICE 고르세요 (1:HOT, 2:ICE) >");
+		int kind = Integer.parseInt(sc.nextLine());
+
+
+		System.out.println("메뉴 수량을 입력해주세요 >");
+		int menuEA = Integer.parseInt(sc.nextLine());
+
+		System.out.println("포장여부를 입력해주세요 (1:GO, 2:HERE) >");
+		int G_H = Integer.parseInt(sc.nextLine());
+
+		OrderDto order = new OrderDto(0,G_H,null, 0);  //총 결제금액 ?
+		OrderDetailDto orderDetail = new OrderDetailDto(0,0,menuName,menuEA,kind);
+
+		order.getOrderDetailList().add(orderDetail);
+		CafeController.insertOrders(order);
+
 	}
 }//클래스 끝
