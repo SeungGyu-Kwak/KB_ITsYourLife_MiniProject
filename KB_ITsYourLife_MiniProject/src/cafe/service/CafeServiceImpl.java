@@ -20,18 +20,23 @@ public class CafeServiceImpl implements CafeService{
 	
 	@Override
 	public List<CoffeeDto> selectAll() throws SearchWrongException {
-		// TODO Auto-generated method stub
-		return null;
+		List<CoffeeDto> coffeeList = coffeeDAO.selectAll();	
+		if(coffeeList.size()==0) {
+			throw new SearchWrongException("게시물에 레코드가 없습니다.");
+		}
+		
+		return coffeeList;
 	}
 
 	@Override
 	public List<CoffeeDto> coffeeSelectByName(String keyWord) throws SearchWrongException {
-		List<CoffeeDto> coffeList = coffeeDAO.coffeeSelectByName(keyWord);
+		List<CoffeeDto> coffeeList = coffeeDAO.coffeeSelectByName(keyWord);
 		
-		if (coffeList.size() == 0) {
+		if (coffeeList.size() == 0) {
 			throw new SearchWrongException("해당 키워드를 가진 메뉴가 없습니다.");
 		}
-		return coffeList;
+		return coffeeList;
 	}
+
 
 }
