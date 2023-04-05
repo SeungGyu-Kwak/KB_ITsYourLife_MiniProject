@@ -44,11 +44,11 @@ public class CoffeeDto {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("음료 이름 =");
+		builder.append("음료 이름 : ");
 		builder.append(beverageName);
-		builder.append(", Hot 가격 =");
+		builder.append(", Hot 가격 : ");
 		builder.append(hotPrice);
-		builder.append(", ICE 가격 =");
+		builder.append(", ICE 가격 : ");
 		builder.append(icePrice);
 		return builder.toString();
 	}

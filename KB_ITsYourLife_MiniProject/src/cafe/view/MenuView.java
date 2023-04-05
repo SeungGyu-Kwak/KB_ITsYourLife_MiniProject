@@ -13,13 +13,13 @@ public class MenuView {
 	 * */
 	public static void menuChoice() {
 		while(true) {
-			System.out.println("\n----------------------------------------");
+			System.out.println("\n------------------------------------------------------------------");
 			System.out.print("[ 1. 메뉴 검색   ");
 			System.out.print("2. 커피(음료) 상세정보 보기  ");
 			System.out.print("3. 주문하기 ");
 			System.out.print("4. 종료 ]");
 
-			System.out.println("\n--------------------------------------------");
+			System.out.println("\n------------------------------------------------------------------");
 			System.out.println("번호를 선택하세요 : ");
 			try {
 				int menu = Integer.parseInt(sc.nextLine());//
