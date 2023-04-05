@@ -14,9 +14,17 @@ public class CafeController {
 	private static CafeService cafeService = CafeServiceImpl.getInstance();
 	
 	/**
-	 * 카페메뉴 전체 검색
+	 * 카페메뉴 전체 보기
 	 * @작성자 : 윤소민
 	 * */
+	public static void coffeeSelectByAll() {
+		try {
+			List<CoffeeDto> coffeeList = cafeService.selectAll();
+			SuccessView.selectPrint(coffeeList);
+		}catch(SearchWrongException e) {
+			FailView.errorMessage(e.getMessage());
+		}
+	}
 	
 	/**
 	 * 카페메뉴 이름 쳐서 해당 메뉴 상세 정보 보기
