@@ -5,7 +5,7 @@ package cafe.common;
 public interface DBProperties {
 	public static final String DRIVER_NAME = "oracle.jdbc.driver.OracleDriver";
 	String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-	String USER_ID="scott";
-	String USER_PASS="tiger";
+	String USER_ID="gyu";
+	String USER_PASS="gyu";
 	
 }
