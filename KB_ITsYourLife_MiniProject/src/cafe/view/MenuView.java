@@ -70,38 +70,66 @@ public class MenuView {
 	public static void inputOrder() {
 		OrderDto order = null;
 		List<OrderDetailDto> orderDetailList = new ArrayList<>();
+		boolean isMenuExist;
 		
 		while(true) {
 			OrderDetailDto orderDetail = null;
 			System.out.println("메뉴 이름을 입력해주세요 >");
 			String menuName = sc.nextLine();
+			
+			isMenuExist = CafeController.coffeeSelectByName(menuName);
+			
+			
+			if (!isMenuExist) break;
+			int isHot = 1;
 
-			System.out.println("HOT / ICE 고르세요 (1:HOT, 2:ICE) >");
-			int kind = Integer.parseInt(sc.nextLine());
-
-
-			System.out.println("메뉴 수량을 입력해주세요 >");
-			int amount = Integer.parseInt(sc.nextLine());
+			while(true) {
+				System.out.println("HOT / ICE 고르세요 (1:HOT, 2:ICE) >");
+				isHot = Integer.parseInt(sc.nextLine());
+				
+				if (isHot == 1 || isHot == 2) {
+					break;
+				}
+				else {
+					System.out.println("다시 입력해주세요");
+				}
+			}
+			
+			
+			int amount = 0;
+			while (true) {
+				System.out.println("메뉴 수량을 입력해주세요 >");
+				amount = Integer.parseInt(sc.nextLine());
+				
+				if (amount > 0) {
+					break;
+				}else {
+					System.out.println("수량을 정확히 입력해주세요");
+				}
+			}
+			
 
 			System.out.println("더 주문하시겠습니까? (Y, N) ");
 			String isStop = sc.nextLine();
 			
-			if (isStop.equals("N")) {
+			if (isStop.equals("N") || isStop.equals("n")) {
 				System.out.print("포장여부를 입력해주세요 (1: 먹고가기, 2: 포장하기) >");
 				int isTogo = Integer.parseInt(sc.nextLine());
 				order = new OrderDto(0, isTogo, null, 0);  //order_num_seq, isTogo, order_date, total_price
-				orderDetail = new OrderDetailDto(0, 0, menuName, kind, amount, 0);
+				orderDetail = new OrderDetailDto(0, 0, menuName, isHot, amount, 0);
 				orderDetailList.add(orderDetail);		
 				order.setOrderDetailList(orderDetailList);
 				break;
 			}
 			
 			//주문 상세에 대한 객체 생성 후 List에 넣기
-			orderDetail = new OrderDetailDto(0, 0, menuName, kind, amount, 0);
+			orderDetail = new OrderDetailDto(0, 0, menuName, isHot, amount, 0);
 			orderDetailList.add(orderDetail);
 		}
 		
-		CafeController.insertOrders(order);
-
+		if(isMenuExist) {
+			CafeController.insertOrders(order);
+		}
+		
 	}
 }//클래스 끝
