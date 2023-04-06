@@ -48,12 +48,6 @@ public class CafeServiceImpl implements CafeService{
 		int result = orderDAO.orderInsert(dto);
 		if (result == 0) throw new DMLException("주문되지 않았습니다.");
 	}
-	@Override
-	public void totalPriceUpdate(OrderDto dto) throws DMLException {
-		int result = orderDAO.orderUpdate(dto);
-		if (result == 0) throw new DMLException("주문한 전체 금액을 산출하지 못했습니다.");
-		
-	}
-
+	
 
 }

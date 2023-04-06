@@ -42,15 +42,13 @@ public class CafeController {
 	}
 	
 	/** 
-	 * 주문하기
+	 * 음료 주문하기
 	 * @작성자 : 곽승규, 윤소민
 	 */
 	public static void insertOrders(OrderDto order) {
 		try {
 			cafeService.coffeeOrder(order);
 			SuccessView.messagePrint("주문되었습니다.");
-			
-			cafeService.totalPriceUpdate(order);//토탈금액 적는 것 완성하기
 			SuccessView.orderListPrint(order);
 			
 		}catch(DMLException e) {

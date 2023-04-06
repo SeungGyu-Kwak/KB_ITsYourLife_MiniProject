@@ -26,11 +26,6 @@ public interface CafeService {
 	 * */
 	void coffeeOrder(OrderDto dto) throws DMLException;
 	
-	/**
-	 * 주문완료한 것들 토탈 금액 산출하기
-	 * @작성자 : 곽승규
-	 * */
-	void totalPriceUpdate(OrderDto dto) throws DMLException;
 	
 	
 }
