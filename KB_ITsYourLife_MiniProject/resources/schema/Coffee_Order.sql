@@ -1,42 +1,43 @@
---DB »ı¼º
+--DB ìƒì„±
 
---¸Ş´º Å×ÀÌºí (¸Ş´ºÄÚµå¿Í ÀÌ¸§, HOT/ICE°¡°İ)
+--ë©”ë‰´ í…Œì´ë¸” (ë©”ë‰´ì½”ë“œì™€ ì´ë¦„, HOT/ICEê°€ê²©)
 CREATE TABLE tbl_menu(
-    beverage_code number(8) primary key,
-    beverage_name varchar2(50) unique,
-    hot_price number(8) not null,
-    ice_price number(8) not null
+    beverage_code number(8) primary key, --ë©”ë‰´ì½”ë“œ
+    beverage_name varchar2(50) unique,   --ë©”ë‰´ì´ë¦„
+    hot_price number(8) not null,        --ëœ¨ê±°ìš´ ìŒë£Œ ê°€ê²©
+    ice_price number(8) not null         --ì°¨ê°€ìš´ ìŒë£Œ ê°€ê²©
 );
 
-CREATE SEQUENCE seq_menu
-START WITH 1
-INCREMENT BY 1;
 
-INSERT INTO tbl_menu values(1, '¾Æ¸Ş¸®Ä«³ë', 4500, 5000);
-INSERT INTO tbl_menu values(2, 'Ä«Æä¶ó¶¼', 5500, 6000);
-INSERT INTO tbl_menu values(3, 'Ä«ÇªÄ¡³ë', 5000, 5500);
-INSERT INTO tbl_menu values(4, '¸¶³¢¾ßÅä', 6000, 6500);
-INSERT INTO tbl_menu values(5, 'Ä«Æä¸ğÄ«', 5000, 5500);
-INSERT INTO tbl_menu values(6, 'Äİµåºê·ç', 4500, 5000);
-INSERT INTO tbl_menu values(7, '¿¡½ºÇÁ·¹¼Ò', 4000, 4500);
-INSERT INTO tbl_menu values(8, '¾ÆÆ÷Ä«Åä', 6500, 7000);
-INSERT INTO tbl_menu values(9, 'ÃÊÄÚ¶ó¶¼', 5800, 6300);
+INSERT INTO tbl_menu values(1, 'ì•„ë©”ë¦¬ì¹´ë…¸', 4500, 5000);
+INSERT INTO tbl_menu values(2, 'ì¹´í˜ë¼ë–¼', 5500, 6000);
+INSERT INTO tbl_menu values(3, 'ì¹´í‘¸ì¹˜ë…¸', 5000, 5500);
+INSERT INTO tbl_menu values(4, 'ë§ˆë¼ì•¼í† ', 6000, 6500);
+INSERT INTO tbl_menu values(5, 'ì¹´í˜ëª¨ì¹´', 5000, 5500);
+INSERT INTO tbl_menu values(6, 'ì½œë“œë¸Œë£¨', 4500, 5000);
+INSERT INTO tbl_menu values(7, 'ì—ìŠ¤í”„ë ˆì†Œ', 4000, 4500);
+INSERT INTO tbl_menu values(8, 'ì•„í¬ì¹´í† ', 6500, 7000);
+INSERT INTO tbl_menu values(9, 'ì´ˆì½”ë¼ë–¼', 5800, 6300);
 
 SELECT * FROM tbl_menu;
-select * from tbl_menu where beverage_name LIKE '%Ä«Æä%';
-select * from tbl_menu where beverage_name LIKE '%¶ó¶¼%';
 
---ÁÖ¹® Å×ÀÌºí (ÁÖ¹®¹øÈ£, ÁÖ¹®¾ÆÀÌµğ, ÁÖ¹®³¯Â¥)
+
+select * from tbl_menu where beverage_name LIKE '%ì¹´í˜%'; --í™•ì¸ìš©
+select * from tbl_menu where beverage_name LIKE '%ë¼ë–¼%'; --í™•ì¸ìš©
+
+
+--ì£¼ë¬¸ í…Œì´ë¸” (ì£¼ë¬¸ë²ˆí˜¸, í¬ì¥ì—¬ë¶€, ì£¼ë¬¸ë‚ ì§œ, ì´ê°€ê²©)
 CREATE TABLE tbl_order(
-    order_num_seq number(4) primary key,
-    G_H number(1) check(G_H in(1, 2)), --1ÀÌ¸é GO, 2ÀÌ¸é HERE  
-    order_date Date default sysdate,
-    total_price number(8)           -- SUM(each_price)
+    order_num_seq number(4) primary key,       --ì£¼ë¬¸ë²ˆí˜¸
+    is_togo number(1) check(is_togo in(1, 2)), --í¬ì¥ì—¬ë¶€ : 1ì´ë©´ GO, 2ì´ë©´ HERE  
+    order_date Date default sysdate,           --ì£¼ë¬¸ë‚ ì§œ
+    total_price number(8)                      -- SUM(each_price)
 );
 
-CREATE SEQUENCE seq_order
+CREATE SEQUENCE seq_order           --ì‹œí€€ìŠ¤ë¬¸ ì¶”ê°€
 START WITH 1
 INCREMENT BY 1;
+
 
 INSERT INTO tbl_order(order_num_seq, order_date) VALUES(seq_order.NEXTVAL, DEFAULT);
 INSERT INTO tbl_order(order_num_seq, order_date) VALUES(seq_order.NEXTVAL, DEFAULT);
@@ -47,29 +48,35 @@ INSERT INTO tbl_order(order_num_seq, order_date) VALUES(seq_order.NEXTVAL, DEFAU
 SELECT * FROM tbl_order;
 
 
---ÁÖ¹®»ó¼¼ Å×ÀÌºí(ÁÖ¹®¹øÈ£¸¦ ÂüÁ¶ÇÏ±â À§ÇØ ÁÖ¹®Å×ÀÌºíÀÇ orderNumÀ» FK ¼±¾ğ)
---(»ó¼¼ÁÖ¹®ÄÚµå, ÁÖ¹®¹øÈ£(FK), ¸Ş´º¹øÈ£(ÀÌ¸§), HOT/ICE, ¼ö·®, °¡°İ)
+--ì£¼ë¬¸ìƒì„¸ í…Œì´ë¸”(ì£¼ë¬¸ë²ˆí˜¸ë¥¼ ì°¸ì¡°í•˜ê¸° ìœ„í•´ ì£¼ë¬¸í…Œì´ë¸”ì˜ order_num_seqì„ ì°¸ì¡°í•˜ëŠ” order_numì„ PKì™€ FKë¡œ ì¡ìŒ)
+--(ìƒì„¸ì£¼ë¬¸ì½”ë“œ, ì£¼ë¬¸ë²ˆí˜¸(FK), ë©”ë‰´ì´ë¦„, HOT/ICE, ìˆ˜ëŸ‰, ê°ë©”ë‰´ì˜ ì´ê°€ê²©)
 CREATE TABLE tbl_detail_order(
-    order_code number(4) primary key,
-    order_num number(2) constraint fk_seqorder REFERENCES tbl_order(order_num_seq),
-    menu_name varchar(20),
-    H_I number(1) check(H_I in(1, 2)), --1ÀÌ¸é HOT, 2ÀÌ¸é ICE
-    amount number(2),
-    each_price number(8)     --AMOUNT X PRICE   
+    order_code number(4) primary key,        --ìƒì„¸ì£¼ë¬¸ì½”ë“œ
+    order_num number(2) constraint fk_seqorder REFERENCES tbl_order(order_num_seq), --ì£¼ë¬¸ë²ˆí˜¸
+    menu_name varchar(20),                   --ë©”ë‰´ì´ë¦„
+    is_hot number(1) check(is_hot in(1, 2)), --HOT/ICE 1ì´ë©´ HOT, 2ì´ë©´ ICE
+    amount number(2),                        --ìˆ˜ëŸ‰
+    each_price number(8)                     --ê°ë©”ë‰´ì˜ ì´ê°€ê²© AMOUNT X PRICE   
 );
 
+CREATE SEQUENCE seq_code                     --ì‹œí€€ìŠ¤ë¬¸ ì¶”ê°€
+START WITH 1
+INCREMENT BY 1;
 
-INSERT INTO tbl_detail_order(order_code, order_num) VALUES(1, seq_order.currVAL);
-INSERT INTO tbl_detail_order(order_code, order_num) VALUES(2, seq_order.currVAL);
-INSERT INTO tbl_detail_order(order_code, order_num) VALUES(3, seq_order.currVAL);
-INSERT INTO tbl_detail_order(order_code, order_num) VALUES(4, seq_order.currVAL);
-INSERT INTO tbl_detail_order(order_code, order_num) VALUES(5, seq_order.currVAL);
+
+INSERT INTO tbl_detail_order(order_code, order_num) VALUES(seq_code.NEXTVAL, seq_order.CURRVAL);
+INSERT INTO tbl_detail_order(order_code, order_num) VALUES(seq_code.NEXTVAL, seq_order.CURRVAL);
+INSERT INTO tbl_detail_order(order_code, order_num) VALUES(seq_code.NEXTVAL, seq_order.CURRVAL);
+INSERT INTO tbl_detail_order(order_code, order_num) VALUES(seq_code.NEXTVAL, seq_order.CURRVAL);
+INSERT INTO tbl_detail_order(order_code, order_num) VALUES(seq_code.NEXTVAL, seq_order.CURRVAL);
 
 SELECT * FROM tbl_detail_order;
 
-commit; --Å×ÀÌºí »ı¼ºµÇ¾îÀÖÁö¸¸ COMMITÇÏÁö ¾ÊÀ½. ROLLBACK °¡´É!
+commit; --í…Œì´ë¸” ìƒì„±ë˜ì–´ìˆì§€ë§Œ COMMITí•˜ì§€ ì•ŠìŒ. ROLLBACK ê°€ëŠ¥!
 rollback;
 
+DROP TABLE tbl_order;
+DROP SEQUENCE seq_code;
 
 
 
