@@ -29,25 +29,30 @@ public class CafeController {
 	}
 	
 	/**
-	 * 카페메뉴 이름 쳐서 해당 메뉴 상세 정보 보기
+	 * 카페메뉴 키워드 쳐서 해당 메뉴 상세 정보 보기
 	 * @작성자 : 곽승규
 	 * */
-	public static void coffeeSelectByName(String keyWord) {
+	public static void coffeeSelectByKeyWord(String keyWord) {
 		try {
-			List<CoffeeDto>coffeeList = cafeService.coffeeSelectByName(keyWord);
+			List<CoffeeDto>coffeeList = cafeService.coffeeSelectByKeyWord(keyWord);
 			SuccessView.selectByNamePrint(coffeeList, keyWord);
 		} catch (SearchWrongException e) {
 			FailView.errorMessage(e.getMessage());
 		}
 	}
 	
-	/** CafeControllerImpl 
+	/** 
 	 * 주문하기
+	 * @작성자 : 곽승규, 윤소민
 	 */
 	public static void insertOrders(OrderDto order) {
 		try {
 			cafeService.coffeeOrder(order);
 			SuccessView.messagePrint("주문되었습니다.");
+			
+			cafeService.totalPriceUpdate(order);//토탈금액 적는 것 완성하기
+			SuccessView.orderListPrint(order);
+			
 		}catch(DMLException e) {
 			FailView.errorMessage(e.getMessage());
 		}

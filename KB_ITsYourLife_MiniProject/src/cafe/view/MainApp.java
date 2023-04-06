@@ -7,7 +7,6 @@ public class MainApp {
 		System.out.println("************* 카페 주문 시작합니다.***************");
 		MenuView.menuChoice();
 
-
 	}
 
 }

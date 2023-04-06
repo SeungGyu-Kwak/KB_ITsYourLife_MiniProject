@@ -35,8 +35,8 @@ public class CafeServiceImpl implements CafeService{
 	}
 
 	@Override
-	public List<CoffeeDto> coffeeSelectByName(String keyWord) throws SearchWrongException {
-		List<CoffeeDto> coffeeList = coffeeDAO.coffeeSelectByName(keyWord);
+	public List<CoffeeDto> coffeeSelectByKeyWord(String keyWord) throws SearchWrongException {
+		List<CoffeeDto> coffeeList = coffeeDAO.coffeeSelectByKeyWord(keyWord);
 		
 		if (coffeeList.size() == 0) {
 			throw new SearchWrongException("해당 키워드를 가진 메뉴가 없습니다.");
@@ -47,6 +47,12 @@ public class CafeServiceImpl implements CafeService{
 	public void coffeeOrder(OrderDto dto) throws DMLException {
 		int result = orderDAO.orderInsert(dto);
 		if (result == 0) throw new DMLException("주문되지 않았습니다.");
+	}
+	@Override
+	public void totalPriceUpdate(OrderDto dto) throws DMLException {
+		int result = orderDAO.orderUpdate(dto);
+		if (result == 0) throw new DMLException("주문한 전체 금액을 산출하지 못했습니다.");
+		
 	}
 
 

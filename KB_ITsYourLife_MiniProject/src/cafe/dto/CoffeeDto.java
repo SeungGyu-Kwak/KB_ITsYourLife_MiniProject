@@ -45,10 +45,12 @@ public class CoffeeDto {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("음료 이름 : ");
+//		String menuName = String.format("%-8s", beverageName);
+//		builder.append(menuName);
 		builder.append(beverageName);
-		builder.append(", Hot 가격 : ");
+		builder.append("| Hot 가격 : ");
 		builder.append(hotPrice);
-		builder.append(", ICE 가격 : ");
+		builder.append("| ICE 가격 : ");
 		builder.append(icePrice);
 		return builder.toString();
 	}

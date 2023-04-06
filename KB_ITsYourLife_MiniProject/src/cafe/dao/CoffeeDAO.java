@@ -16,9 +16,16 @@ public interface CoffeeDAO {
 	
 	/**
 	 * 커피 메뉴에 특정 문자열이 포함된 레코드 검색 - 0개이상의 레코드 리턴!!!
-	 * select * from coffee where subject like ?
+	 * @사용하는 곳 : 콘솔창 2번 메뉴에서 키워드 검색으로 사용하는 곳
+	 * select * from coffee where tbl_menu like ?
 	 */
-	List<CoffeeDto> coffeeSelectByName(String keyWord) throws SearchWrongException;
+	List<CoffeeDto> coffeeSelectByKeyWord(String keyWord) throws SearchWrongException;
 	
 
+	/**
+	 * 커피 메뉴에서 이름으로 검색  - 0개 또는 1개레코드 리턴! 
+	 * @사용하는 곳 : orderDaoImpl 에서 orderDetails에서 사용할 것
+	 * select * from coffee where tbl_menu where beverage_name = ? 
+	 */
+	CoffeeDto coffeeSelectByName(String beverageName) throws SearchWrongException;
 }
