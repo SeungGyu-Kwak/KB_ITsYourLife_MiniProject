@@ -5,17 +5,17 @@ public class OrderDetailDto {
 	private int orderCode; // 주문상세 코드
 	private int orderNum; // 주문테이블코드(FK) 
 	private String menuName;//메뉴이름
-	private int kind; // kind(hot, ice) 1이면 hot, 2면 ice
+	private int isHot; // isHot(hot, ice) 1이면 hot, 2면 ice
 	private int amount; // 몇잔
 	private int eachPrice; // amount * price
 	
-	public OrderDetailDto(int orderCode, int orderNum, String menuName, int kind, int amount, int eachPrice) {
+	public OrderDetailDto(int orderCode, int orderNum, String menuName, int isHot, int amount, int eachPrice) {
 		super();
 		this.orderCode = orderCode;
 		this.orderNum = orderNum;
 		this.menuName = menuName;
 		this.amount = amount;
-		this.kind = kind;
+		this.isHot = isHot;
 		this.eachPrice = eachPrice;
 		
 	}
@@ -53,13 +53,12 @@ public class OrderDetailDto {
 	}
 
 
-
-	public int getKind() {
-		return kind;
+	public int getIsHot() {
+		return isHot;
 	}
 
-	public void setKind(int kind) {
-		this.kind = kind;
+	public void setIsHot(int isHot) {
+		this.isHot = isHot;
 	}
 
 	public int getEachPrice() {
@@ -79,8 +78,8 @@ public class OrderDetailDto {
 		builder.append(orderNum);
 		builder.append(", menuName=");
 		builder.append(menuName);
-		builder.append(", kind=");
-		builder.append(kind);
+		builder.append(", isHot=");
+		builder.append(isHot);
 		builder.append(", amount=");
 		builder.append(amount);
 		builder.append(", eachPrice=");
@@ -88,6 +87,7 @@ public class OrderDetailDto {
 		builder.append("]");
 		return builder.toString();
 	}
+
 
 
 	

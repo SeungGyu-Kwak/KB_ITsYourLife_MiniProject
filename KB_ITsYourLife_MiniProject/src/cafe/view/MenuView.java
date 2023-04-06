@@ -38,7 +38,7 @@ public class MenuView {
 					inputOrder();
 					break;
 				case 4:
-					System.out.println("다음에 다시 만나요~~^^ 로그아웃됩니다...");
+					System.out.println("안녕히 가세요~~^^");
 					System.exit(0);	
 					break;
 
