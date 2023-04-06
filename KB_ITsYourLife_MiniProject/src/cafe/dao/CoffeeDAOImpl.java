@@ -38,7 +38,7 @@ public class CoffeeDAOImpl implements CoffeeDAO{
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				CoffeeDto dto = new CoffeeDto(
-						rs.getInt("beverageCode"),rs.getString("beverageName"),
+						rs.getInt("beverage_code"),rs.getString("beverage_name"),
 						rs.getInt("hot_price"), rs.getInt("ice_price")
 						);
 				
@@ -56,13 +56,13 @@ public class CoffeeDAOImpl implements CoffeeDAO{
 	}
 
 	@Override
-	public List<CoffeeDto> coffeeSelectByName(String keyWord) throws SearchWrongException {
+	public List<CoffeeDto> coffeeSelectByKeyWord(String keyWord) throws SearchWrongException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<CoffeeDto> list = new ArrayList<>();
 		
-		String sql = "select * from tbl_menu where beverageName like ?";
+		String sql = "select * from tbl_menu where beverage_name like ?";
 		
 		try {
 			con = DBManager.getConnection();
@@ -83,12 +83,48 @@ public class CoffeeDAOImpl implements CoffeeDAO{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SearchWrongException("음료이름 검색에 예외가 발생했습니다.");
+			throw new SearchWrongException("음료키워드 검색에 예외가 발생했습니다.");
 		}finally {
 			DBManager.releaseConnection(con, ps, rs);
 		}
 		
 		return list;
+	}
+	@Override
+	public CoffeeDto coffeeSelectByName(String beverageName) throws SearchWrongException {
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		CoffeeDto beverage = null;
+		
+		String sql = "select * from tbl_menu where beverage_name = ?";
+		
+		try {
+			con = DBManager.getConnection();
+			ps = con.prepareStatement(sql);
+			
+			ps.setString(1, beverageName);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int beverageCode = rs.getInt(1);
+				String menuName = rs.getString(2);
+				int hotPrice = rs.getInt(3);
+				int incPrice = rs.getInt(4);
+				
+				beverage = new CoffeeDto(beverageCode, menuName, hotPrice, incPrice);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new SearchWrongException("음료이름 검색에 예외가 발생했습니다.");
+		}finally {
+			DBManager.releaseConnection(con, ps, rs);
+		}
+		
+		return beverage;
 	}
 
 }

@@ -2,18 +2,23 @@ package cafe.dto;
 
 import java.util.List;
 
+/**
+ * OrderDto 주문테이블에 넣기 위한 Dto
+ * @작성자 : 곽승규 
+ * 
+ * */
 public class OrderDto {
 	private int orderNumSeq; // 주문번호
-	private int G_H;// 포장여부
+	private int isToGo;// 포장여부
 	private String orderDate;//주문날짜
 	private int totalPrice;// 총결제금액
 	
-	private List <OrderDetailDto> orderDetailList; // 주문 상세정보 저장
+	private List <OrderDetailDto> orderDetailList; // 주문 상세정보 저장(중요)
 	
-	public OrderDto(int orderNumSeq, int G_H, String orderDate, int totalPrice) {
+	public OrderDto(int orderNumSeq, int isToGo, String orderDate, int totalPrice) {
 		super();
 		this.orderNumSeq = orderNumSeq;
-		this.G_H = G_H;
+		this.isToGo = isToGo;
 		this.orderDate = orderDate;
 		this.totalPrice = totalPrice;
 
@@ -36,12 +41,14 @@ public class OrderDto {
 		this.totalPrice = totalPrice;
 	}
 
-	public int getG_H() {
-		return G_H;
+
+
+	public int getIsToGo() {
+		return isToGo;
 	}
 
-	public void setG_H(int g_H) {
-		G_H = g_H;
+	public void setIsToGo(int isToGo) {
+		this.isToGo = isToGo;
 	}
 
 	public String getOrderDate() {
@@ -65,18 +72,19 @@ public class OrderDto {
 		StringBuilder builder = new StringBuilder();
 		builder.append("OrderDto [orderNumSeq=");
 		builder.append(orderNumSeq);
-		builder.append(", totalPrice=");
-		builder.append(totalPrice);
-		builder.append(", G_H=");
-		builder.append(G_H);
+		builder.append(", isToGo=");
+		builder.append(isToGo);
 		builder.append(", orderDate=");
 		builder.append(orderDate);
+		builder.append(", totalPrice=");
+		builder.append(totalPrice);
 		builder.append(", orderDetailList=");
 		builder.append(orderDetailList);
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
+
 	
 	
 }

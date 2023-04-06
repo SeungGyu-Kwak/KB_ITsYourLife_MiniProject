@@ -17,10 +17,20 @@ public interface CafeService {
 	/**
 	 * 커피메뉴에 키워드 입력해서 상세정보 보기
 	 * */
-	List<CoffeeDto> coffeeSelectByName(String keyWord) throws SearchWrongException;
+	List<CoffeeDto> coffeeSelectByKeyWord(String keyWord) throws SearchWrongException;
+	
 	
 	/**
-	 * 주문한 메뉴들 insert하기
+	 * 주문한 메뉴들 주문 테이블에 insert하기
+	 * @작성자 : 곽승규
 	 * */
-	void coffeeOrder(OrderDto dto) throws DMLException; 
+	void coffeeOrder(OrderDto dto) throws DMLException;
+	
+	/**
+	 * 주문완료한 것들 토탈 금액 산출하기
+	 * @작성자 : 곽승규
+	 * */
+	void totalPriceUpdate(OrderDto dto) throws DMLException;
+	
+	
 }
