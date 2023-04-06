@@ -41,6 +41,18 @@ public class CafeController {
 		}
 	}
 	
+	
+	public static boolean coffeeSelectByName(String menuName) {
+		try {
+			CoffeeDto coffee = cafeService.coffeeSelectName(menuName);
+			return true;
+		} catch (SearchWrongException e) {
+			FailView.errorMessage(e.getMessage());
+			return false;
+		}
+//		return true;
+	}
+	
 	/** 
 	 * 음료 주문하기
 	 * @작성자 : 곽승규, 윤소민

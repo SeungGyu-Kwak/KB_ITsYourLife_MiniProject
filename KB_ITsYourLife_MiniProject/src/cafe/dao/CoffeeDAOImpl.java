@@ -103,7 +103,7 @@ public class CoffeeDAOImpl implements CoffeeDAO{
 	
 	/**
 	 * 커피음료 이름 받은 것으로 검색하는 메소드
-	 * 사용처 : OrderDAOImpl의 orderDetails()에서 사용
+	 * 사용처 : OrderDAOImpl의 orderDetails()에서 사용, 해당 메뉴가 있는지 없는지 체크할 수 있도록 함.
 	 * @작성자 : 곽승규
 	 * */
 	@Override

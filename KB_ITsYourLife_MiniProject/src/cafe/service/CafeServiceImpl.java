@@ -49,5 +49,16 @@ public class CafeServiceImpl implements CafeService{
 		if (result == 0) throw new DMLException("주문되지 않았습니다.");
 	}
 	
+	@Override
+	public CoffeeDto coffeeSelectName(String menuName) throws SearchWrongException {
+		CoffeeDto coffee = coffeeDAO.coffeeSelectByName(menuName);
+		
+		if (coffee == null) {
+			throw new SearchWrongException("해당 메뉴는 저희 매장에 없습니다...^^");	
+		}
+		
+		return coffee;
+	}
+	
 
 }
