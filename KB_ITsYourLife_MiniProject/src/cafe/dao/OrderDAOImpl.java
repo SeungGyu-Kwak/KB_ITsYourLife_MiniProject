@@ -138,13 +138,13 @@ public class OrderDAOImpl implements OrderDAO{
 				CoffeeDto beverage = coffeeDAO.coffeeSelectByName(orderDetail.getMenuName());
 				
 				ps.setString(1, orderDetail.getMenuName());
-				ps.setInt(2, orderDetail.getKind());
+				ps.setInt(2, orderDetail.getIsHot());
 				ps.setInt(3, orderDetail.getAmount());
 				
 				int price = 0; // 주문상세 당 각각의 가격 저장할 변수
 				
 				
-				if (orderDetail.getKind() == 1) { // hot임
+				if (orderDetail.getIsHot() == 1) { // hot임
 					price = beverage.getHotPrice() * orderDetail.getAmount();
 				}else {//ice임
 					price = beverage.getIcePrice() * orderDetail.getAmount();
@@ -158,8 +158,7 @@ public class OrderDAOImpl implements OrderDAO{
 				result[count++] = ps.executeUpdate();
 
 			}
-<<<<<<< HEAD
-			
+
 			// 총 금액 저장하기
 			orderDto.setTotalPrice(totalPrice);
 
