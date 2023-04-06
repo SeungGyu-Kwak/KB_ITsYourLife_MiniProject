@@ -25,6 +25,11 @@ public class CoffeeDAOImpl implements CoffeeDAO{
 	}
 	
 	
+	/**
+	 * 카페 음료 전체 검색
+	 * @작성자 : 윤소민
+	 * */
+	
 	@Override
 	public List<CoffeeDto> selectAll() {
 		Connection con = null;
@@ -55,6 +60,10 @@ public class CoffeeDAOImpl implements CoffeeDAO{
 		return coffeeList;
 	}
 
+	/**
+	 * 카페 음료 키워드를 통해 검색
+	 * @작성자 : 곽승규
+	 * */
 	@Override
 	public List<CoffeeDto> coffeeSelectByKeyWord(String keyWord) throws SearchWrongException {
 		Connection con = null;
@@ -90,6 +99,13 @@ public class CoffeeDAOImpl implements CoffeeDAO{
 		
 		return list;
 	}
+	
+	
+	/**
+	 * 커피음료 이름 받은 것으로 검색하는 메소드
+	 * 사용처 : OrderDAOImpl의 orderDetails()에서 사용
+	 * @작성자 : 곽승규
+	 * */
 	@Override
 	public CoffeeDto coffeeSelectByName(String beverageName) throws SearchWrongException {
 		

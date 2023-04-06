@@ -22,7 +22,8 @@ public class SuccessView {
 	}
 
 	public static void messagePrint(String message) {
-		System.out.println(message);
+		System.out.println();
+		System.out.println("\n" + message);
 	}
 
 	/**
@@ -44,13 +45,13 @@ public class SuccessView {
 		List<OrderDetailDto> orderDetailList = order.getOrderDetailList();
 		System.out.println("---------- 주문내역 ----------");
 		for (OrderDetailDto eachOrderDetail : orderDetailList) {
-			String kind = eachOrderDetail.getKind() == 1 ? "HOT" : "ICE";
-			System.out.print(eachOrderDetail.getMenuName() + "( "+ kind + ")     ");
+			String isHot = eachOrderDetail.getIsHot() == 1 ? "HOT" : "ICE";
+			System.out.print(eachOrderDetail.getMenuName() + "("+ isHot + ")     ");
 			System.out.print(eachOrderDetail.getAmount() + "잔     ");
 			System.out.print(eachOrderDetail.getEachPrice()+"원     ");
 			System.out.println();
 		}
-		System.out.println("총 금액 : " + order.getTotalPrice());
+		System.out.println("총 금액 : " + order.getTotalPrice() + "원");
 		
 	}
 
