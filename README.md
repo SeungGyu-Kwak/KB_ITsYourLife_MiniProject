@@ -78,6 +78,30 @@
  ## 📸 프로젝트 화면 캡처
  <details>
   <summary>0. 처음 시작 화면 </summary>
+  <img width="765" alt="capture01" src="https://user-images.githubusercontent.com/62579544/235347510-e622d7c0-b47e-4eb3-9b56-dc76c77a684c.png">
  </details>
+ 
+<details>
+  <summary>1. 전체 음료 메뉴 조회 </summary>
+ 
+</details>
+ 
+<details>
+  <summary>2. 음료 상세정보 보기 </summary>
+ 
+</details>
 
+<details>
+  <summary>3. 주문하기 </summary>
+ 
+</details>
+
+<details>
+  <summary>4. 주문한 메뉴 및 결제금액 출력</summary>
+ 
+</details>
+<details>
+  <summary>5. 종료하기 </summary>
+ 
+</details>
 
