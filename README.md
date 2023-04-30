@@ -34,6 +34,50 @@
 ![DB](README.assets/DB.png)
 
 ## MVC
+![MVC](README.assets/MVC.png)
 
+## 🗂️ 프로젝트 폴더 구조
+```
+📦resources
+ ┣ 📂schema
+ ┃ ┗ 📜Coffee_Order.sql
+ ┗ 📜.DS_Store
+📦src
+ ┣ 📂cafe
+ ┃ ┣ 📂common
+ ┃ ┃ ┣ 📜DBManager.java
+ ┃ ┃ ┗ 📜DBProperties.java
+ ┃ ┣ 📂controller
+ ┃ ┃ ┗ 📜CafeController.java
+ ┃ ┣ 📂dao
+ ┃ ┃ ┣ 📜CoffeeDAO.java
+ ┃ ┃ ┣ 📜CoffeeDAOImpl.java
+ ┃ ┃ ┣ 📜OrderDAO.java
+ ┃ ┃ ┗ 📜OrderDAOImpl.java
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📜CoffeeDto.java
+ ┃ ┃ ┣ 📜OrderDetailDto.java
+ ┃ ┃ ┗ 📜OrderDto.java
+ ┃ ┣ 📂exception
+ ┃ ┃ ┣ 📜DMLException.java
+ ┃ ┃ ┗ 📜SearchWrongException.java
+ ┃ ┣ 📂service
+ ┃ ┃ ┣ 📜CafeService.java
+ ┃ ┃ ┗ 📜CafeServiceImpl.java
+ ┃ ┣ 📂view
+ ┃ ┃ ┣ 📜FailView.java
+ ┃ ┃ ┣ 📜MainApp.java
+ ┃ ┃ ┣ 📜MenuView.java
+ ┃ ┃ ┣ 📜SuccessView.java
+ ┃ ┃ ┗ 📜TestView.java
+ ┃ ┗ 📜.DS_Store
+ ┣ 📂test
+ ┃ ┗ 📜Test.java
+ ┗ 📜.DS_Store
+ ```
+ ## 📸 프로젝트 화면 캡처
+ <details>
+  <summary>0. 처음 시작 화면 </summary>
+ </details>
 
 
