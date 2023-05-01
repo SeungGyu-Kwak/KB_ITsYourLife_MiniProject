@@ -83,7 +83,7 @@
  
 <details>
   <summary>1. 전체 음료 메뉴 조회 </summary>
- 
+ <img width="763" alt="capture02" src="https://user-images.githubusercontent.com/62579544/235347809-09718e6e-30fb-4192-85d5-099ab4141352.png">
 </details>
  
 <details>
