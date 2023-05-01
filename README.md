@@ -88,20 +88,21 @@
  
 <details>
   <summary>2. 음료 상세정보 보기 </summary>
- 
+ <img width="763" alt="capture03" src="https://user-images.githubusercontent.com/62579544/235347865-c2b6ef32-4110-4d60-a34a-2754b25245b6.png">
 </details>
 
 <details>
   <summary>3. 주문하기 </summary>
- 
+ <img width="755" alt="capture04" src="https://user-images.githubusercontent.com/62579544/235347880-dd8aacd3-74c6-47e4-b537-2c072233f6b9.png">
 </details>
 
 <details>
   <summary>4. 주문한 메뉴 및 결제금액 출력</summary>
- 
+ <img width="391" alt="capture05" src="https://user-images.githubusercontent.com/62579544/235453413-64c4fa19-f0c3-4227-a8aa-a25bbac3e360.png">
 </details>
+
 <details>
   <summary>5. 종료하기 </summary>
- 
+ <img width="765" alt="capture06" src="https://user-images.githubusercontent.com/62579544/235453453-26edcbdc-587e-4959-ab5c-ffd2af7cfe9c.png">
 </details>
 
