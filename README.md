@@ -106,3 +106,34 @@
  <img width="765" alt="capture06" src="https://user-images.githubusercontent.com/62579544/235453453-26edcbdc-587e-4959-ab5c-ffd2af7cfe9c.png">
 </details>
 
+<br/>
+
+## 👨‍👧‍👦 팀원소개
+<table border="1">
+	<th>곽승규(팀장)</th>
+	<th>김태선</th>
+  <th>윤소민</th>
+	<tr>
+	    <td><img src="https://avatars.githubusercontent.com/u/62579544?v=4" width="250"/></td>
+	    <td><img src="https://avatars.githubusercontent.com/u/127369505?v=4" width="200"/></td>
+      <td><img src="https://avatars.githubusercontent.com/u/55522263?v=4" width="200"/></td>  
+	</tr>
+	<tr>
+	    <td>
+        1. 프로젝트 MVC 내부 구성 및 Package 구조화 <br/>
+        2. 사용자정의 예외 처리 <br/>
+        3. 커피 DTO, 주문 DTO, 커피 DAO, 주문 DAO, 카페 Service, Controller 작성 <br/>
+        4. 프로젝트 발표
+      </td>
+	    <td>
+        1. SQL문 작성<br/>
+        2. DB 구축<br/>
+        3. PPT 작성
+      </td>
+      <td>
+       1. 카페 Service 및 MainView 작성<br/>
+       2. 커피 DTO, 커피 DAO 작성 <br/> 
+       3. 시연영상 촬영 및 편집
+      </td>
+	</tr>
+</table>
